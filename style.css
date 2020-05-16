@@ -50,7 +50,22 @@ body {
 /**********************************************
 *** PLAYERS
 **********************************************/
-
+ .inputScore {
+    position: absolute;
+    width: 200px;
+    top: 2%;
+    left: 13%;
+    transform: translateX(-50%);
+    color: #EB4D4E;
+    background: none;
+    border: none;
+    font-family: Lato;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background-color 0.3s, color 0.3s;
+} 
 .player-name {
     font-size: 40px;
     text-align: center;
