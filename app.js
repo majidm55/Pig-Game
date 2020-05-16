@@ -8,7 +8,7 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
-var scores, roundScore, activePlayer, gamePlaying;
+var scores, roundScore, activePlayer, gamePlaying, lastScore;
 
 init();
 
@@ -19,21 +19,34 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
             //1 . random number
         var dice = Math.floor(Math.random() * 6) + 1;
 
+        
         //2. Display result
         var diceDOM = document.querySelector('.dice');
         diceDOM.style.display = 'block';
         diceDOM.src = 'dice-' + dice + '.png';
 
-        //3. Update Round Score  IF the rolled number wasn't 1
-        if (dice !== 1) {
+        //3. Update Round Score  IF you rolled consecutive 6s
+         if(lastScore === 6 && dice === 6){
+            alert('you scored 6 twice');
+            scores[activePlayer] = 0;
+            document.querySelector('#score-' + activePlayer).textContent = '0';
+            lastScore = 0;
+            nextPlayer();
+
+         // 4.   Update Round Score  IF the rolled number wasn't 1
+        } else if (dice !== 1) {
             // Add Score
             roundScore += dice;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
+            console.log("dice", dice);
 
         } else {
             nextPlayer();
         }
-    
+
+        lastScore = dice;
+        
+        
     }
 });
 
@@ -46,7 +59,7 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
         // Check if player won the game
-        if (scores[activePlayer] >= 20) {
+        if (scores[activePlayer] >= 25) {
             document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
             document.querySelector('.dice').style.display = 'none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
