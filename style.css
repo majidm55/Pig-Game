@@ -53,8 +53,8 @@ body {
  .inputScore {
     position: absolute;
     width: 200px;
-    top: 2%;
-    left: 13%;
+    bottom: 3%;
+    left:54%;
     transform: translateX(-50%);
     color: #EB4D4E;
     background: none;
