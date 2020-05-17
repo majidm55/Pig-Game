@@ -54,13 +54,14 @@ body {
     position: absolute;
     width: 200px;
     bottom: 3%;
-    left:54%;
+    left:52%;
     transform: translateX(-50%);
     color: #EB4D4E;
     background: none;
     border: none;
     font-family: Lato;
     font-size: 20px;
+    text-align: center;
     text-transform: uppercase;
     cursor: pointer;
     font-weight: 300;
@@ -160,6 +161,15 @@ i {
     position: absolute;
     left: 50%;
     top: 178px;
+    transform: translateX(-50%);
+    height: 100px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+
+.dice2 {
+    position: absolute;
+    left: 50%;
+    top: 284px;
     transform: translateX(-50%);
     height: 100px;
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
